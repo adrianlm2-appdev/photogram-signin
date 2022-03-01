@@ -31,6 +31,7 @@ class PhotosController < ApplicationController
   end
 
   def update
+    @user_id = session.fetch(:user_id)
     id = params.fetch("the_photo_id")
     photo = Photo.where({ :id => id }).at(0)
     photo.caption = params.fetch("input_caption")
